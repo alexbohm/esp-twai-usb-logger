@@ -1,0 +1,23 @@
+[package]
+name = "esp-twai-usb-logger"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+embedded-hal = { version = "0.2.7", features = ["unproven"] }
+r0 = "1.0.0"
+riscv = "0.8.0"
+riscv-rt = { version = "0.9.0" }
+esp32c3-hal = { path = "../esp-hal/esp32c3-hal" }
+esp-backtrace = { version = "0.2.0", features = [
+    "esp32c3",
+    "panic-handler",
+    "exception-handler",
+    "print-uart",
+] }
+
+[profile.release]
+debug = true
+lto = true
